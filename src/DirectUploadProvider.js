@@ -18,7 +18,7 @@ export default class DirectUploadProvider extends Component {
     )
 
     const validIds = responses.filter(r => r.signed_id);
-    if (validIds.length > 0) { onSuccess({ signedIds: responses }); }
+    if (validIds.length > 0) { onSuccess(responses); }
 
     this.setState({ uploading: false })
   }
