@@ -42,7 +42,7 @@ export default ({ directUploadsUrl, file, headers }, onStatusChange) => {
           handleStatusUpdate({ status: 'error' });
         }
 
-        resolve(blobData.signed_id)
+        resolve(blobData)
       })
       .catch((err) => {
         if (canceled) {

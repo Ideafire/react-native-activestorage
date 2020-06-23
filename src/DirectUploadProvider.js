@@ -13,12 +13,12 @@ export default class DirectUploadProvider extends Component {
 
     this.setState({ uploading: true })
 
-    const signedIds = await Promise.all(
+    const responses = await Promise.all(
       files.map(file => directUpload({ file, directUploadsUrl }, this.handleChangeFileUpload))
     )
 
-    const validIds = signedIds.filter(it => it);
-    if (validIds.length > 0) { onSuccess({ signedIds: validIds }); }
+    const validIds = responses.filter(r => r.signed_id);
+    if (validIds.length > 0) { onSuccess({ signedIds: responses }); }
 
     this.setState({ uploading: false })
   }
